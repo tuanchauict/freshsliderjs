@@ -10,44 +10,42 @@
     </style>
 </head>
 <body>
-<div id="single" style="width: 250px; margin: 20px"></div>
-<div id="plural" style="width: 250px; margin: 20px"></div>
-<div id="single-value" style="width: 250px; margin: 20px"></div>
-<div id="plural-value" style="width: 250px; margin: 20px"></div>
+<div id="unranged" style="width: 250px; margin: 20px"></div>
+<div id="ranged" style="width: 250px; margin: 20px"></div>
+<div id="unranged-value" style="width: 250px; margin: 20px"></div>
+<div id="ranged-value" style="width: 250px; margin: 20px"></div>
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="freshslider.js"></script>
 <script>
-    var s0 = $("#single").freshslider({
+    var s0 = $("#unranged").freshslider({
         step: 10,
         unit:'%',
         enabled:false
     });
 
-    var s1 = $("#plural").freshslider({
+    var s1 = $("#ranged").freshslider({
         range:true,
         step:0.1,
         text:false,
         onchange:function(low, high){
-            // console.log(low, high);
+            console.log(low, high);
         }
     });
 
-    var s2 = $("#single-value").freshslider({
+    var s2 = $("#unranged-value").freshslider({
         step: 1,
         value:10
     });
 
-    var s3 = $("#plural-value").freshslider({
+    var s3 = $("#ranged-value").freshslider({
         range: true,
         step:1,
         value:[4, 60],
         onchange:function(low, high){
-            // console.log(low, high);
+            console.log(low, high);
         }
     });
-
-    // console.log(s3.getValue());
 </script>
 </body>
 </html>
