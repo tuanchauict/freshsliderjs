@@ -1,5 +1,9 @@
-# Fresh Slider
+# Fresh Slider JS
 Fresh Slider is a `jQuery` plugin.
+
+![Fresh Slider JS][1]
+
+See [demo](https://dl.dropboxusercontent.com/u/36585213/OpenSource%20Resource/freshsliderjs/demo.html)
 
 ## Install
 Just add `jQuery` and `freshslider.js` and `freshslider.css` to your `html` file
@@ -34,3 +38,6 @@ return value for unranged and 2 elements array value for ranged
 
 ## Set Enabled
     freshSliderObject.setEnable(enabled:boolean)
+
+
+  [1]: https://dl.dropboxusercontent.com/u/36585213/OpenSource%20Resource/freshsliderjs/Screen%20Shot%202014-04-01%20at%206.25.37.png
