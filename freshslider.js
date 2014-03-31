@@ -5,7 +5,7 @@
 (function($){
     /**
      * options.range = true or false, [default: false]
-     * options.onchange = callback function when slider caret changed, onchange(low, high) for count = 2, and onchange(value) for count = 1
+     * options.onchange = callback function when slider caret changed, onchange(low, high) for ranged, and onchange(value) for unranged
      * options.min = minimum of value [default: 0]
      * options.max = maximum of value [default: 100]
      * options.step [default: 1]
