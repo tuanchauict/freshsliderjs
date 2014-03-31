@@ -160,7 +160,6 @@
                 isRight = true;
             }
             else{
-                console.log("isRange: " + cls);
                 switch (cls){
                     case 'fscaret fss-left':
                         isRight = false;
