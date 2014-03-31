@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="freshstyle.css">
+    <title></title>
+    <style>
+        div{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="single" style="width: 250px; margin: 20px"></div>
+<div id="plural" style="width: 250px; margin: 20px"></div>
+<div id="single-value" style="width: 250px; margin: 20px"></div>
+<div id="plural-value" style="width: 250px; margin: 20px"></div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="freshslider.js"></script>
+<script>
+    var s0 = $("#single").freshslider({
+        step: 10,
+        unit:'%',
+        enabled:false
+    });
+
+    var s1 = $("#plural").freshslider({
+        range:true,
+        step:0.1,
+        text:false,
+        onchange:function(low, high){
+            // console.log(low, high);
+        }
+    });
+
+    var s2 = $("#single-value").freshslider({
+        step: 1,
+        value:10
+    });
+
+    var s3 = $("#plural-value").freshslider({
+        range: true,
+        step:1,
+        value:[4, 60],
+        onchange:function(low, high){
+            // console.log(low, high);
+        }
+    });
+
+    // console.log(s3.getValue());
+</script>
+</body>
+</html>
