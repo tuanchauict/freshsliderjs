@@ -21,10 +21,24 @@ module.exports = function(grunt) {
 				  'build/<%= pkg.name %>.<%= pkg.version %>.min.css': 'src/*.css'
 				}
 			}
+		},
+		jshint: {
+			// define the files to lint
+			files: ['gruntfile.js', 'src/**/*.js'],
+			// configure JSHint (documented at http://www.jshint.com/docs/)
+			options: {
+			  // more options here if you want to override JSHint defaults
+				globals: {
+					jQuery: true,
+					console: true,
+					module: true
+				}
+			}
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-  	grunt.registerTask('default', ['uglify']);
+  	grunt.registerTask('default', ['jshint','uglify','cssmin']);
 };
