@@ -11,9 +11,20 @@ module.exports = function(grunt) {
 		    	src: 'src/<%= pkg.name %>.<%= pkg.version %>.js',
 				dest: 'build/<%= pkg.name %>.<%= pkg.version %>.min.js'
 		    }
+		},
+		cssmin: {
+			add_banner: {
+				options: {
+				  banner: '/* My minified css file */'
+				},
+				files: {
+				  'build/<%= pkg.name %>.<%= pkg.version %>.min.css': 'src/*.css'
+				}
+			}
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
   	grunt.registerTask('default', ['uglify']);
 };
