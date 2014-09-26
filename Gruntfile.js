@@ -34,11 +34,15 @@ module.exports = function(grunt) {
 					module: true
 				}
 			}
+		},
+		qunit: {
+			files: ['test/**/*.html']
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-qunit');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-  	grunt.registerTask('default', ['jshint','uglify','cssmin']);
+  	grunt.registerTask('default', ['jshint','qunit','uglify','cssmin']);
 };
