@@ -10,12 +10,7 @@ module.exports = function(grunt) {
 			build: {
 		    	src: 'src/<%= pkg.name %>.<%= pkg.version %>.js',
 				dest: 'build/<%= pkg.name %>.<%= pkg.version %>.min.js'
-		    },
-			// dist: {
-			// 	files: {
-			// 		'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
-			// 	}
-			// }
+		    }
 		}
 	});
 
