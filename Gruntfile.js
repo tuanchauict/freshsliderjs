@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 			},
 			build: {
 		    	src: 'src/<%= pkg.name %>.<%= pkg.version %>.js',
-				dest: 'build/<%= pkg.name %>.<%= pkg.version %>.min.js'
+				dest: 'build/<%= pkg.name %>.min.js'
 		    }
 		},
 		cssmin: {
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 				  banner: '/* My minified css file */'
 				},
 				files: {
-				  'build/<%= pkg.name %>.<%= pkg.version %>.min.css': 'src/*.css'
+				  'build/<%= pkg.name %>.min.css': 'src/*.css'
 				}
 			}
 		},
