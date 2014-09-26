@@ -30,7 +30,11 @@ File build/freshslider.min.css created: 1.33 kB → 1 kB
 
 Done, without errors.
 ```
-
+Note that the testing step may fail if you don't have a server running at your localhost, port 8888. If you have Python installed thatn just navigate to the root folder and type in the command:
+```
+python -m SimpleHTTPServer 8888
+```
+Then re-run Grunt.
 ## Constructor
     jQueryObject.freshslider(options)
     
