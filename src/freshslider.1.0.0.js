@@ -40,7 +40,7 @@
 
         var updateCallback = null;
 
-        if(isFunction(options.onchange) == true){
+        if(isFunction(options.onchange) === true){
             updateCallback = options.onchange;
         }
 
@@ -291,5 +291,5 @@
         updateCarets();
 
         return this;
-    }
+    };
 }(jQuery));
