@@ -40,7 +40,7 @@
 
         var updateCallback = null;
 
-        if(isFunction(options.onchange) == true){
+        if(isFunction(options.onchange) === true){
             updateCallback = options.onchange;
         }
 
@@ -253,10 +253,6 @@
             }
         });
 
-
-
-
-
         this.getValue = function(){
             if(isSingle){
                 return [values[1] * gap + min];
@@ -270,9 +266,8 @@
 
             if(!isSingle){
                 if(arguments.length >= 2){
-                    values[0] = (options.value[0] - min) / gap;
-                    values[1] = (options.value[1] - min) / gap;
-
+                    values[0] = (arguments[0] - min) / gap;
+                    values[1] = (arguments[1] - min) / gap;
                     updateCarets();
                 }
             }
@@ -296,5 +291,5 @@
         updateCarets();
 
         return this;
-    }
+    };
 }(jQuery));

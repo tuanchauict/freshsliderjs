@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Testing freshsliderjs</title>
+		<link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">
+	</head>
+	<body>
+		<div id="qunit"></div>
+		<div id="qunit-fixture"></div>
+		<script src="//code.jquery.com/qunit/qunit-1.15.0.js"></script>
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="/src/freshslider.1.0.0.js"></script>
+		<script>
+		QUnit.module("Test getValue", {
+			setup: function() {
+				$("body").append($("<div>").attr({
+					id: "mySlider"
+				}));
+			},
+			teardown: function() {
+				$("#mySlider").remove();
+			}
+		});
+		QUnit.test("Test unranged ", function( assert ) {
+			var slider = $("#mySlider").freshslider({
+			        step: 10
+			    })
+		    assert.deepEqual(slider.getValue(), [50], "Test get value for unranged.");
+
+		    slider = $("#mySlider").freshslider({
+				step: 1,
+				value:10
+			});
+			assert.deepEqual(slider.getValue(), [10], "Test get value for unranged with value.");
+		});
+		QUnit.test("Test ranged", function( assert ) {
+			var slider = $("#mySlider").freshslider({
+			        range:true,
+			        step:0.1,
+			    });
+		    assert.deepEqual(slider.getValue(), [0, 100], "Test get value for ranged.");
+
+		    slider = $("#mySlider").freshslider({
+			        range: true,
+			        step: 1,
+			        value: [4, 60],
+			    });
+		    assert.deepEqual(slider.getValue(), [4, 60], "Test get value for ranged with value.");
+		});
+		</script>
+	</body>
+</html>
