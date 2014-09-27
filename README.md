@@ -3,7 +3,7 @@ Fresh Slider is a `jQuery` plugin.
 
 ![Fresh Slider JS][1]
 
-See [demo](http://www.facebook.com/l.php?u=http%3A%2F%2Fxuanluong.github.io%2Ffreshsliderjs%2F&h=HAQGSxZqI)
+See [demo](http://tuanchauict.github.io/freshsliderjs/)
 
 ## Install
 Just add `jQuery` and `freshslider.js` and `freshslider.css` to your `html` file. The `src` folder contains the original source code while the `build` folder contains the uglified/minified ones.
