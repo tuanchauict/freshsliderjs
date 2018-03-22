@@ -13,6 +13,8 @@
      * options.enabled = true / false. [default: true]
      * options.value = number if count = 1 , or 2 elements array contains low and high value if count = 2
      * options.text = true or false, [default: true]
+     * options.changeOnMouseDown = true or false, [default: true]
+     * options.changeOnMouseMove = true or false, [default: true]
      * @param options
      * @returns {$.fn}
      */
@@ -22,13 +24,16 @@
             isSingle = !range,
             min = options.min || 0,
             max = options.max || 100,
+            max = options.max || 100,
             gap = max - min,
             step = options.step || 1,
             unit = options.unit || '',
             enabled = typeof options.enabled == 'undefined'? true: options.enabled,
             values = [0, 1],
             text = typeof options.text == 'undefined' ? true:options.text,
-            view = null;
+            view = null,
+            changeOnMouseDown = options.changeOnMouseDown || true,
+            changeOnMouseMove = options.changeOnMouseMove || true;
 
         if(gap < 0){
             throw new Error();
@@ -184,7 +189,7 @@
                 }
             }
 
-            updateCarets();
+            updateCarets(changeOnMouseDown);
             if(e.preventDefault){
                     e.preventDefault();
             }
@@ -245,7 +250,7 @@
                         }
                     }
                 }
-                updateCarets();
+                updateCarets(changeOnMouseMove);
             }
             if(e.preventDefault){
                 e.preventDefault();
