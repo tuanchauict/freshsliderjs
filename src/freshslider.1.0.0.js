@@ -92,7 +92,9 @@
             return number.toFixed(countPoint);
         };
 
-        var updateCarets = function(){
+        var updateCarets = function(triggerEvent){
+            var triggerEvent = typeof triggerEvent == 'boolean' ? triggerEvent : true;
+
             if(text){
                 caretRight.text((round(values[1] * gap) + min).toFixed(countPoint) + unit);
                 if(!isSingle){
@@ -122,7 +124,7 @@
                 'z-index':isRight?1:0
             });
 
-            if(updateCallback){
+            if(true == triggerEvent && updateCallback){
                 if(isSingle){
                     updateCallback(round(values[1] * gap) + min);
                 }
@@ -288,7 +290,7 @@
         };
 
         this.setEnabled(enabled);
-        updateCarets();
+        updateCarets(false);
 
         return this;
     };
