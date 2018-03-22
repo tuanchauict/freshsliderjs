@@ -183,8 +183,8 @@
             }
 
             updateCarets();
-            if(event.preventDefault){
-                    event.preventDefault();
+            if(e.preventDefault){
+                    e.preventDefault();
             }
             else{
                 return false;
@@ -245,8 +245,8 @@
                 }
                 updateCarets();
             }
-            if(event.preventDefault){
-                event.preventDefault();
+            if(e.preventDefault){
+                e.preventDefault();
             }
             else{
                 return false;
