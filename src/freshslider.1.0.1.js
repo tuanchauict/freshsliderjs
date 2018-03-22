@@ -32,8 +32,8 @@
             values = [0, 1],
             text = typeof options.text == 'undefined' ? true:options.text,
             view = null,
-            changeOnMouseDown = options.changeOnMouseDown || true,
-            changeOnMouseMove = options.changeOnMouseMove || true;
+            changeOnMouseDown = typeof options.changeOnMouseDown == 'boolean' ? options.changeOnMouseDown : true,
+            changeOnMouseMove = typeof options.changeOnMouseMove == 'boolean' ? options.changeOnMouseMove : true;
 
         if(gap < 0){
             throw new Error();
