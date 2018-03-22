@@ -13,6 +13,8 @@
      * options.enabled = true / false. [default: true]
      * options.value = number if count = 1 , or 2 elements array contains low and high value if count = 2
      * options.text = true or false, [default: true]
+     * options.changeOnMouseDown = true or false, [default: true]
+     * options.changeOnMouseMove = true or false, [default: true]
      * @param options
      * @returns {$.fn}
      */
@@ -22,13 +24,16 @@
             isSingle = !range,
             min = options.min || 0,
             max = options.max || 100,
+            max = options.max || 100,
             gap = max - min,
             step = options.step || 1,
             unit = options.unit || '',
             enabled = typeof options.enabled == 'undefined'? true: options.enabled,
             values = [0, 1],
             text = typeof options.text == 'undefined' ? true:options.text,
-            view = null;
+            view = null,
+            changeOnMouseDown = typeof options.changeOnMouseDown == 'boolean' ? options.changeOnMouseDown : true,
+            changeOnMouseMove = typeof options.changeOnMouseMove == 'boolean' ? options.changeOnMouseMove : true;
 
         if(gap < 0){
             throw new Error();
@@ -92,7 +97,9 @@
             return number.toFixed(countPoint);
         };
 
-        var updateCarets = function(){
+        var updateCarets = function(triggerEvent){
+            var triggerEvent = typeof triggerEvent == 'boolean' ? triggerEvent : true;
+
             if(text){
                 caretRight.text((round(values[1] * gap) + min).toFixed(countPoint) + unit);
                 if(!isSingle){
@@ -122,7 +129,7 @@
                 'z-index':isRight?1:0
             });
 
-            if(updateCallback){
+            if(true == triggerEvent && updateCallback){
                 if(isSingle){
                     updateCallback(round(values[1] * gap) + min);
                 }
@@ -182,9 +189,9 @@
                 }
             }
 
-            updateCarets();
-            if(event.preventDefault){
-                    event.preventDefault();
+            updateCarets(changeOnMouseDown);
+            if(e.preventDefault){
+                    e.preventDefault();
             }
             else{
                 return false;
@@ -243,10 +250,10 @@
                         }
                     }
                 }
-                updateCarets();
+                updateCarets(changeOnMouseMove);
             }
-            if(event.preventDefault){
-                event.preventDefault();
+            if(e.preventDefault){
+                e.preventDefault();
             }
             else{
                 return false;
@@ -288,7 +295,7 @@
         };
 
         this.setEnabled(enabled);
-        updateCarets();
+        updateCarets(false);
 
         return this;
     };

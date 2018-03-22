@@ -10,7 +10,7 @@
 		<div id="qunit-fixture"></div>
 		<script src="//code.jquery.com/qunit/qunit-1.15.0.js"></script>
 		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="/src/freshslider.1.0.0.js"></script>
+		<script src="/src/freshslider.1.0.1.js"></script>
 		<script>
 		QUnit.module("Test getValue", {
 			setup: function() {
@@ -47,6 +47,24 @@
 			        value: [4, 60],
 			    });
 		    assert.deepEqual(slider.getValue(), [4, 60], "Test get value for ranged with value.");
+		});
+
+		QUnit.test("change event", function( assert ) {
+			var executed = false;
+			var slider = $("#mySlider").freshslider({
+			        range:true,
+			        min:1,
+			        max:10,
+			        onchange: function() {
+			        	executed = true;
+			        }
+			    });
+
+		    assert.equal(executed, false, "Change event is not fired on plugin construction.");
+
+		    slider.setValue(2, 9);
+
+		    assert.equal(executed, true, "Change event is fired.");
 		});
 		</script>
 	</body>
